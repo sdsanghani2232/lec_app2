@@ -4,13 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".audio_video.VideoActivity">
+    tools:context=".audio_video.VideoActivity"
+    android:orientation="vertical">
 
     <VideoView
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:id="@+id/video"
         android:layout_margin="20dp"/>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loder"
+        app:trackColor="@color/black"
+        />
 
 
 

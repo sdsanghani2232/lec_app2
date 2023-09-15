@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.databasedemo2.alaram_manager.AlaramManagerActivity;
+import com.databasedemo2.audio_video.VideoActivity;
+import com.databasedemo2.photo.CameraActiviy;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-               startActivity(new Intent(getApplicationContext(), AlaramManagerActivity.class));
+               startActivity(new Intent(getApplicationContext(), VideoActivity.class));
                finish();
             }
         },2000);

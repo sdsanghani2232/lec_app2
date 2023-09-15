@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.databasedemo2.R;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 public class CameraActiviy extends AppCompatActivity {
 
@@ -57,6 +62,15 @@ public class CameraActiviy extends AppCompatActivity {
             {
                 Bitmap img = (Bitmap) data.getExtras().get("data");  // data is fix so that get Bit map
                 iv.setImageBitmap(img);
+                File f1 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                File f = new File(f1,"s.png");
+
+                try {
+                    FileOutputStream of = new FileOutputStream(f);
+                    img.compress(Bitmap.CompressFormat.PNG, 100, of);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
             }
             else if(requestCode == GALLERY_CODE)
             {
